@@ -2,6 +2,8 @@
 
 <p dir="auto">🖥️ 프로젝트 소개</p>
 <p dir="auto">Unity3D를 사용하여 2인팀으로 모바일RPG게임을 제작했습니다.</p>
+<p dir="auto">👤 인원 및 담당</p>
+<p dir="auto">2인 | 플레이어, 전투시스템, 전투UI</p>
 <p dir="auto">📆 개발 기간</p>
 <p dir="auto">2023.03.10 ~ 2023.04.11 (1개월) </p>
 <p dir="auto">⚙️ 개발 환경</p>
