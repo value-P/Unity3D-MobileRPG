@@ -10,7 +10,7 @@ public abstract class AIBase : MovableBase
 
     public MovableBase oldFocusTarget;
 
-    [SerializeField, Tooltip("ĳ������ ���ݹ���"), InspectorName("���ݹ���")]
+    [SerializeField]
     protected float _atkRange = 0f;
     public float AtkRange
     {
@@ -21,7 +21,7 @@ public abstract class AIBase : MovableBase
         }
     }
 
-    [SerializeField, Tooltip("ĳ������ ��������"), InspectorName("��������")]
+    [SerializeField]
     protected float _findRange = 0f;
     public float FindRange
     {

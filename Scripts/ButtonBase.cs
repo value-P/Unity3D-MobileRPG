@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonBase : MonoBehaviour
 {
-    public virtual void ButtonDown() { } // ´©¸¦¶§
-    public virtual void ButtonOn() { } // ´©¸£´Â µµÁß
-    public virtual void ButtonUp() { } // ¶¿¶¼
+    public virtual void ButtonDown() { } 
+    public virtual void ButtonOn() { } 
+    public virtual void ButtonUp() { } 
 }
