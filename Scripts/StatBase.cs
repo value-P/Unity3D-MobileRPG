@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class StatBase : MonoBehaviour
 {
-    #region ���ȵ�
-    [SerializeField] protected float _currentHp;         // ����ü��
-    [SerializeField] protected float _maxHp;             // �ִ�ü��
-    [SerializeField] protected float _moveSpeed;         // �̼�
-    [SerializeField] protected float _attackSpeed;       // ����
-    [SerializeField] protected float _attackDelay;       // ������
-    [SerializeField] protected float _resistance;        // ���׷�
-    [SerializeField] protected float _attackPower;         // ���ݷ�
-    [SerializeField] protected float _defensePower;        // ����
-    [SerializeField] protected float _selfRecovery;        // ü����
+    [SerializeField] protected float _currentHp;         
+    [SerializeField] protected float _maxHp;             
+    [SerializeField] protected float _moveSpeed;         
+    [SerializeField] protected float _attackSpeed;       
+    [SerializeField] protected float _attackDelay;       
+    [SerializeField] protected float _resistance;        
+    [SerializeField] protected float _attackPower;       
+    [SerializeField] protected float _defensePower;      
+    [SerializeField] protected float _selfRecovery;      
 
     public float moveSpeedMultiflier = 2f;
 
@@ -21,9 +20,9 @@ public class StatBase : MonoBehaviour
     {
         get => _currentHp;
         set => _currentHp = Mathf.Clamp(value, 0, _maxHp);
-    } // ���� ü�� ����
+    }
     public float MaxHP { get => _maxHp; }
-    public float HPRate { get => _currentHp / _maxHp; } // ü�º���
+    public float HPRate { get => _currentHp / _maxHp; } 
     public float MoveSpeed { get => _moveSpeed; }
     public float AttackSpeed
     {
@@ -52,6 +51,5 @@ public class StatBase : MonoBehaviour
         }
     }
     public float SelfRecovery { get => _selfRecovery; }
-    #endregion
 
 }
