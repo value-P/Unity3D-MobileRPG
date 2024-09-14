@@ -36,7 +36,6 @@ public class WeaponBase
 
     protected virtual ProjectileBase Shot(MovableBase wanttarget, Vector3 wantPosition, bool wantTracking)
     {
-        // ��ų ������Ʈ ��ȯ�ϰ� ��ġ �Ҵ�
         ProjectileBase proj = GameObject.Instantiate(spawnPrefab).GetComponent<ProjectileBase>();
         proj.Initialize(owner, wanttarget, wantTracking);
         wantPosition.y += 0.5f;

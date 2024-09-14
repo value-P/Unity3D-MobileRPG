@@ -5,13 +5,10 @@ using UnityEngine;
 public abstract class MState
 {
     protected float distance;
-    /// <summary> �ش� ���¸� ������ �� 1ȸ ȣ�� </summary>
     public abstract void OnEnter(MonsterBase partner);
 
-    /// <summary> �ش� ������ ������Ʈ ȣ�� </summary>
     public abstract void OnUpdate(MonsterBase partner);
 
-    /// <summary> �ش� ���¸� ������ �� 1ȸ ȣ�� </summary>
     public abstract void OnExit(MonsterBase partner);
 }
 
@@ -46,7 +43,6 @@ public class MonsterBase : AIBase
 
     public virtual void Setup()
     {
-        // ���� ĳ���Ͱ� ���� �� �ִ� ���� ������ŭ �޸� �Ҵ�, �� ���¿� Ŭ���� �޸� �Ҵ�
         states = new MState[5];
         states[(int)MonsterState.Idle] = new MonsterStates.MIdle();
         states[(int)MonsterState.Walk] = new MonsterStates.MMove();
@@ -79,10 +75,8 @@ public class MonsterBase : AIBase
 
     public void ChangeState(MonsterState newState)
     {
-        /// <summary> ����ó�� </summary>
-        if (states[(int)newState] == null) { return; } // �����Ϸ��� ���°� ����ִ� ���¸� ����
-        /// <summary> ����ó�� </summary>
-        if (currentState != null) { currentState.OnExit(this); } // ���� ���°� �ִٸ� ������
+        if (states[(int)newState] == null) { return; }
+        if (currentState != null) { currentState.OnExit(this); } 
 
         currentState = states[(int)newState];
         currentState.OnEnter(this);
@@ -106,7 +100,7 @@ public class MonsterBase : AIBase
     }
 
     public void Anim_AttackTimeCheck()
-    {   // ���� �ִϸ��̼��� ���� �� ���� ���ð��� �ʱ�ȭ �ϱ� ���� �־��� �Լ�
+    {   
         Stat.AttackSpeed = Stat.AttackDelay;
     }
 

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Projectile_Continuous : ProjectileAction
 {
-    // ���� ������
     [SerializeField] float attackDelay = 0.3f;
     float checkTime = 0f;
-    // ���� ų �ݶ��̴�
     Collider col;
 
     private void Start()
@@ -17,7 +15,6 @@ public class Projectile_Continuous : ProjectileAction
 
     private void Update()
     {
-        // �����̸��� �ݶ��̴� Ű�� ����
         checkTime += Time.deltaTime;
         if(checkTime >= attackDelay)
         {
@@ -26,7 +23,6 @@ public class Projectile_Continuous : ProjectileAction
         }
     }
 
-    // �ݶ��̴� Ű�� ����
     IEnumerator ActiveCollier()
     {
         col.enabled = true;

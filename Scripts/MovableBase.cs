@@ -18,10 +18,10 @@ public abstract class MovableBase : MonoBehaviour
             return stat;
         }
     }
-    protected Collider collider;        // �ݶ��̴�
-    public Animator anim;               // �ִϸ�����
-    public MovableBase focusTarget;     // �� ĳ������ ��ǥ��
-    public bool isAlly;                 // ���Ϳ���
+    protected Collider collider;        
+    public Animator anim;               
+    public MovableBase focusTarget;     
+    public bool isAlly;                 
     public SkinnedMeshRenderer[] meshs;
 
     public Collider atkCollider; // 근접공격에 필요한 콜라이더
@@ -34,7 +34,7 @@ public abstract class MovableBase : MonoBehaviour
     // 버프 목록
     protected List<MovableBuff> buffs = new List<MovableBuff>();
 
-    abstract public float GetDamage(float damage, MovableBase from);   // �ǰݰ��� �޼���
+    abstract public float GetDamage(float damage, MovableBase from);  
 
     protected virtual void Start()
     {

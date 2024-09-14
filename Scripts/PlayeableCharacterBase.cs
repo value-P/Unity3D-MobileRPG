@@ -62,7 +62,6 @@ public class PlayeableCharacterBase : MovableBase
     {
         anim.SetFloat("MoveSpeed", inputDir.magnitude);
 
-        // �Է� ������ ������ �������� �ƴҶ�
         if (inputDir.magnitude > 0.1f && !isAttacking)
         {
             float dirX = inputDir.x;

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class AIBase : MovableBase
 {
-    public AttackType atkType; // �� ĳ������ ������� (����, ���Ÿ�)
+    public AttackType atkType; 
 
     public MovableBase oldFocusTarget;
 
@@ -39,7 +39,7 @@ public abstract class AIBase : MovableBase
     {
         base.Start();
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = this.stat.MoveSpeed; // �׺�޽��� �ӵ��� ĳ������ �̵��ӵ��� ����
+        agent.speed = this.stat.MoveSpeed; 
     }
 
     public override float GetDamage(float damage, MovableBase from)
@@ -47,12 +47,12 @@ public abstract class AIBase : MovableBase
         if (buffs.Count < 1) { StartCoroutine(GetDamageMeshs()); }
 
 
-        damage -= Stat.DefensePower;                               // ���¸�ŭ ������ ����
-        damage = Mathf.Max(0, damage);                             // 0���� �۾����� �ʰ�
-        if (Stat.CurrentHp < damage) { damage = Stat.CurrentHp; }  // �������� ü�º��� ���ٸ� �������� ü�°� ����
+        damage -= Stat.DefensePower;                              
+        damage = Mathf.Max(0, damage);                             
+        if (Stat.CurrentHp < damage) { damage = Stat.CurrentHp; }  
         if (damage == 0) { return 0; }
 
-        Stat.CurrentHp -= damage;                                  // ����ó������ ���������� ������ �ޱ�
+        Stat.CurrentHp -= damage;                                  
 
         return damage;
     }

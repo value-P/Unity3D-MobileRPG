@@ -1,4 +1,4 @@
-public enum PartnerState // AI���� ĳ������ ���µ�
+public enum PartnerState 
 {
     Idle,
     Walk,
@@ -8,7 +8,7 @@ public enum PartnerState // AI���� ĳ������ ���µ�
     Count
 }
 
-public enum MonsterState // ������ ���µ�
+public enum MonsterState
 {
     Idle,
     Walk,
@@ -25,21 +25,21 @@ public enum AttackType
     Long
 }
 
-public enum SceneType // Scene ����
+public enum SceneType 
 {
-    Unknown,    // ����Ʈ
+    Unknown,   
 
-    Lobby,      // �κ�
-    Inventory,  // �κ�
-    Stage,      // ��������
+    Lobby,     
+    Inventory, 
+    Stage,     
 
-    Count      // ����
+    Count      
 }
 
 public enum SkillType
 {
-    Normal,     // �Ϲ� ��ų
-    Ultimate,   // �ñر�
+    Normal,    
+    Ultimate,  
 
     Count
 }

@@ -9,30 +9,20 @@ public class BattleSceneManager : MonoBehaviour
     private static BattleSceneManager _instance;
     public static BattleSceneManager Instance { get => _instance; }
 
-    // ���� ���� â���� ������ ���� �迭 
     public PartnerBase[] partners = new PartnerBase[3];
     public Transform spawnPosition;
 
     public Image[] partnersHp = new Image[3];
 
-    // QTE �� ���� ���� ��ų��ư
     public AllySkillBtn skillBtn;
-    // ��ų ��ư �̹��� �迭
     Sprite[] skillIcons = new Sprite[3];
 
-    #region QTE���� �ʵ�
-    // qte ���� �ð�
     public float qteTime;
-    // qte ���� ����
     public bool isQTESuccess = false;
 
-    // qte ���� ����
     bool isQTEStarted = false;
-    // qte Ÿ�̸�
     float qteTimer;
-    // qte ������ �ε���
     int qteIdx;
-    #endregion
 
     void Awake()
     {
@@ -53,7 +43,6 @@ public class BattleSceneManager : MonoBehaviour
         GameManager.Instance.SpawnPlayerCharacter();
         GameManager.Instance.player.gameObject.transform.position = spawnPosition.position;
 
-        // ���Ḧ ��ȣ�� ���� ������ ������ġ�� ����
         for (int i = 0; i < partners.Length; i++)
         {
             PartnerInfo currentInfo = GameManager.Instance.party[i];
@@ -86,32 +75,28 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (isQTEStarted)
         {
-            qteTimer += Time.deltaTime; // qte Ÿ�̸� ����
+            qteTimer += Time.deltaTime; 
 
             if (qteTimer > qteTime)
             {
-                isQTEStarted = false; // qte����
-                skillBtn.gameObject.SetActive(false); // ��ư ��Ȱ��ȭ
+                isQTEStarted = false; 
+                skillBtn.gameObject.SetActive(false); 
             }
 
-            // QTE�� �����ߴٸ�
             if (isQTESuccess)
             {
                 qteTimer = 0f;
-                // ������QTE�� �����ٸ�
                 if (qteIdx >= partners.Length - 1)
                 {
-                    isQTEStarted = false; // qte����
-                    skillBtn.gameObject.SetActive(false); // ��ư ��Ȱ��ȭ
-                    return; // ����������
+                    isQTEStarted = false; 
+                    skillBtn.gameObject.SetActive(false); 
+                    return; 
                 }
                 else
                 {
-                    // �ٽ� üũ�ϱ� ���� �ʱ�ȭ
                     isQTESuccess = false;
 
                     qteIdx++;
-                    // ��ų��ư ������ Ȱ��ȭ
                     while (partners[qteIdx] == null)
                     {
                         qteIdx++;
@@ -136,7 +121,6 @@ public class BattleSceneManager : MonoBehaviour
         }
     }
 
-    // QTE�ߵ� �޼���
     public void StartQTE()
     {
         qteIdx = 0;
@@ -154,7 +138,6 @@ public class BattleSceneManager : MonoBehaviour
         qteTimer = 0f;
         isQTESuccess = false;
 
-        // ��ų��ư ������ Ȱ��ȭ
         skillBtn._icon.sprite = skillIcons[qteIdx];
         skillBtn.SetTarget(partners[qteIdx]);
         skillBtn.gameObject.SetActive(true);

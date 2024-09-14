@@ -2,13 +2,10 @@
 public abstract class PState
 {
     protected float distance;
-    /// <summary> �ش� ���¸� ������ �� 1ȸ ȣ�� </summary>
     public abstract void OnEnter(PartnerBase partner);
 
-    /// <summary> �ش� ������ ������Ʈ ȣ�� </summary>
     public abstract void OnUpdate(PartnerBase partner);
 
-    /// <summary> �ش� ���¸� ������ �� 1ȸ ȣ�� </summary>
     public abstract void OnExit(PartnerBase partner);
 }
 
@@ -40,7 +37,6 @@ public class PartnerBase : AIBase
 
     public virtual void Setup()
     {
-        // ���� ĳ���Ͱ� ���� �� �ִ� ���� ������ŭ �޸� �Ҵ�, �� ���¿� Ŭ���� �޸� �Ҵ�
         states = new PState[4];
         states[(int)PartnerState.Idle] = new PartnerStates.PIdle();
         states[(int)PartnerState.Walk] = new PartnerStates.PMove();
@@ -52,17 +48,15 @@ public class PartnerBase : AIBase
 
     public void ChangeState(PartnerState newState)
     {
-        /// <summary> ����ó�� </summary>
-        if (states[(int)newState] == null) { return; } // �����Ϸ��� ���°� ����ִ� ���¸� ����
-        /// <summary> ����ó�� </summary>
-        if (currentState != null) { currentState.OnExit(this); } // ���� ���°� �ִٸ� ������
+        if (states[(int)newState] == null) { return; } 
+        if (currentState != null) { currentState.OnExit(this); } 
 
 
         currentState = states[(int)newState];
         currentState.OnEnter(this);
     }
 
-    public override float GetDamage(float damage, MovableBase from) // ������ �޾��� ��
+    public override float GetDamage(float damage, MovableBase from)
     {
         base.GetDamage(damage, from);
 
@@ -90,7 +84,7 @@ public class PartnerBase : AIBase
     }
 
     public void Anim_ComboAttack()
-    {   // ���� ��������� ���� �� �ִϸ��̼��� ���� �� �־��� �Լ�
+    {   
         if (focusTarget.gameObject == null)
         {
             Stat.AttackSpeed = Stat.AttackDelay;
@@ -102,7 +96,7 @@ public class PartnerBase : AIBase
     }
 
     public void Anim_AttackTimeCheck()
-    {   // ���� �ִϸ��̼��� ���� �� ���� ���ð��� �ʱ�ȭ �ϱ� ���� �־��� �Լ�
+    {  
         Stat.AttackSpeed = Stat.AttackDelay;
 
     }

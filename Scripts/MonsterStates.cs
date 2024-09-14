@@ -20,7 +20,6 @@ namespace MonsterStates
                 float nearestDistance = 10f;
                 int nearestIndex = -1;
 
-                // ĳ������ ����������ŭ ���� �����Ѵ�.
                 Collider[] col = Physics.OverlapSphere(monster.gameObject.transform.position, monster.FindRange, 1 << 9 | 1 << 10);
                 for (int i = 0; i < col.Length; i++)
                 {
@@ -45,11 +44,11 @@ namespace MonsterStates
                 distance = (monster.focusTarget.transform.position - monster.gameObject.transform.position).magnitude;
                 monster.findEffect.SetActive(true);
 
-                if (distance > monster.AtkRange) // ���ݹ������� �ִٸ� �̵�
+                if (distance > monster.AtkRange) 
                 {
                     monster.ChangeState(MonsterState.Walk);
                 }
-                else                             // ���ݹ������� ������ ����
+                else                             
                 {
                     monster.ChangeState(MonsterState.Attack);
                 }
@@ -88,7 +87,7 @@ namespace MonsterStates
             monster.anim.SetFloat("isMove", monster.agent.velocity.magnitude);
 
             if (distance > monster.AtkRange)
-            {             // ���ݹ������� ũ�ٸ� �̵�
+            {            
                 monster.agent.SetDestination(monster.focusTarget.transform.position);
                 moveTime += Time.deltaTime;
                 if (moveTime >= 3.5f)
@@ -98,7 +97,7 @@ namespace MonsterStates
                 }
             }
             else if (distance <= monster.AtkRange)
-            {             // ���ݹ������� �۰ų� ���ٸ� �������� ����
+            {             
                 monster.ChangeState(MonsterState.Attack);
                 if (moveTime > 0) { moveTime = 0f; }
             }
@@ -124,7 +123,7 @@ namespace MonsterStates
         public override void OnUpdate(MonsterBase monster)
         {
             if (monster.focusTarget == null)
-            {   // Ÿ���� ���ٸ� �Ҵ�� Ÿ���� ����� �ٽ� �����·� ���ư���.
+            {  
                 distance = 0;
                 monster.ChangeState(MonsterState.Idle);
             }

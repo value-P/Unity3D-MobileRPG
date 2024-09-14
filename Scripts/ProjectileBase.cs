@@ -27,45 +27,27 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    // �߻�ü�� Ư�� ��ġ
-    #region
-    [Tooltip("발사체의 특성")]
     public float currentSpeed;
-    //[Tooltip("�߻�ü�� ���ӵ� - �ð��� ���� ���������� ��ȭ�ϴ� �ӵ���")]
-    //public float acceleration;
-    //[Tooltip("�߻�ü�� ���ӵ� - �ð��� ������ ȸ��")]
-    //public float angularSpeed;
-    [Tooltip("해당 발사체의 생존 시간")]
     public float leftTime;
-    [Tooltip("주인과 충돌이 가능한가?")]
     public bool contactSelf;
-    [Tooltip("타겟을 계속 추적할 것인가?")]
     public bool isTracking;
-    [Tooltip("�������ΰ�?")]
     public bool isRangeAttack;
-    [Tooltip("버프인가?")]
     public bool isBuff;
-    #endregion
 
     void Start()
     {
         foreach (Collider current in GetComponentsInChildren<Collider>())
         {
-            // �ݶ��̴��� �ִ� ������Ʈ���� �浹���� ����� �Ҵ��Ų��.
             current.gameObject.AddComponent<ProjectileCollider>();
         }
 
-        // �߻�ü�� �ൿ���� ��Ƽ� �Ҵ���ѵα�
         actions = GetComponents<ProjectileAction>();
     }
 
     void Update()
     {
         if (leftTime <= 0) { Destroy(gameObject); }
-        leftTime -= Time.deltaTime; // �߻�ü�� �����ð�
-
-        // �ð��� �������� ����
-        // currentSpeed += acceleration * Time.deltaTime;
+        leftTime -= Time.deltaTime; 
 
         if (isTracking && !isBuff)
         {
@@ -185,6 +167,6 @@ public class ProjectileBase : MonoBehaviour
 
     public virtual void SetIgnore(GameObject target)
     {
-        ignoreList.Add(target); //����� �浹�����Ѵ�.(Layer�� Ȱ���ؼ� �浹�� ������ �� �Լ� ���ʿ�)
+        ignoreList.Add(target); 
     }
 }

@@ -13,7 +13,6 @@ public class ShortAttack : MonoBehaviour
         collider = GetComponent<Collider>();
         if (owner == null)
         {
-            // ������ ã�� �� ���ο��� �ݶ��̴� ������ �Ҵ�
             owner = GetComponentInParent<MovableBase>();
             owner.atkCollider = collider;
             collider.enabled = false;
@@ -26,9 +25,7 @@ public class ShortAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // ����ó��.ĳ���Ͱ� �ƴ϶�� return
         if(other.GetComponent<MovableBase>() == null) { return; }
-        // ĳ���� �϶��� �浹 �̺�Ʈ �Լ� �����ϰ� ����
         else
         {
             Activate(other.GetComponent<MovableBase>());
